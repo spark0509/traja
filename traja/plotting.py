@@ -1017,7 +1017,7 @@ def color_dark(
 
         ax (:class:`~matplotlib.axes._subplots.AxesSubplot`): Axes of plot
     """
-    assert is_datetime_or_timedelta_dtype(
+    assert is_datetime64_any_dtype(
         series.index
     ), f"Series must have datetime index but has {type(series.index)}"
 
@@ -1071,7 +1071,7 @@ def find_runs(x: pd.Series) -> (np.ndarray, np.ndarray, np.ndarray):
 
 def fill_ci(series: pd.Series, window: Union[int, str]) -> Figure:
     """Fill confidence interval defined by SEM over mean of `window`. Window can be interval or offset, eg, '30s'."""
-    assert is_datetime_or_timedelta_dtype(
+    assert is_datetime64_any_dtype(
         series.index
     ), f"Series index must be datetime but is {type(series.index)}"
     smooth_path = series.rolling(window).mean()
@@ -1117,7 +1117,7 @@ def plot_actogram(
 
     """
     assert isinstance(series, pd.Series)
-    assert is_datetime_or_timedelta_dtype(
+    assert is_datetime64_any_dtypee(
         series.index
     ), f"Series must have datetime index but has {type(series.index)}"
 
