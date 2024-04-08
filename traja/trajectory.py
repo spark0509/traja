@@ -5,7 +5,7 @@ from typing import Callable, Optional, Union, Tuple
 
 import numpy as np
 import pandas as pd
-from pandas.core.dtypes.common import (
+from pandas.api.types import (
     is_datetime_or_timedelta_dtype,
     is_datetime64_any_dtype,
     is_timedelta64_dtype,
